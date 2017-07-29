@@ -4,8 +4,10 @@ import { Fragment, httpConnector } from 'nuklein';
 @httpConnector('http://localhost:2017/', {
 	beforeGetData: { loading: true },
 	afterGetData: { loading: false, getError: null },
-	ignoreModificators: ['changeEditable', 'setRemoving', 'changePageNum'],
-	setDebounce: 500,
+	onlyLocalModificators: ['changeEditable', 'setRemoving', 'changePageNum'],
+	debounceForSet: {
+		changeTitle: 500,
+	},
 	getErrorData: {
 		getError: 'Не удалось получить список постов. Сервер какаха.',
 	},
