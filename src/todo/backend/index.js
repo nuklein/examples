@@ -10,7 +10,7 @@ const store = new Store();
 app.use(corsPrefetch);
 app.use(bodyParser.json());
 
-app.post('/', httpHandler(store, 'todo'));
+app.post('/', httpHandler(store, 'todoList'));
 
 app.listen(2017, () => {
 	console.log('Example app listening on port 2017!');

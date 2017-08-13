@@ -2,37 +2,43 @@
 
 export function changeEditable(id: number, state: boolean) {
 	return (setStore: Function) => {
-		setStore({ edit: state }, `todo.data.${id}`);
+		setStore({ edit: state }, `todoList.todos.${id}`);
 	};
 }
 
 export function changeTitle(id: number, value: string) {
 	return (setStore: Function) => {
-		setStore({ title: value }, `todo.data.${id}`);
+		setStore({ title: value }, `todoList.todos.${id}`);
 	};
 }
 
 export function changePageNum(pageNum: number) {
 	return (setStore: Function) => {
-		setStore({ pageNum }, 'todo');
+		setStore({ pageNum }, 'todoList.pagination');
+	};
+}
+
+export function changePerPage(perPage: number) {
+	return (setStore: Function) => {
+		setStore({ perPage }, 'todoList.pagination');
 	};
 }
 
 export function remove(id: number) {
 	return (setStore: Function) => {
-		setStore(id, 'todo.data', { method: 'remove', replaceAfterSet: true });
+		setStore(id, 'todoList.todos', { method: 'remove', replaceAfterSet: true });
 	};
 }
 
 export function setRemoving() {
 	return (setStore: Function) => {
-		setStore({ removing: true }, 'todo');
+		setStore({ removing: true }, 'todoList.params');
 	};
 }
 
 export function unshift() {
 	return (setStore: Function) => {
-		setStore({ title: 'новый элемент' }, 'todo.data', {
+		setStore({ title: 'новый элемент' }, 'todoList.todos', {
 			method: 'unshift',
 			replaceAfterSet: true,
 			updateQuantity: true,
@@ -42,7 +48,7 @@ export function unshift() {
 
 export function push() {
 	return (setStore: Function) => {
-		setStore({ title: 'новый элемент' }, 'todo.data', {
+		setStore({ title: 'новый элемент' }, 'todoList.todos', {
 			method: 'push',
 			updateQuantity: true,
 		});

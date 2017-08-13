@@ -1,6 +1,5 @@
-// @flow
 import React, { Component } from 'react';
-import Container from '../Container';
+import Container from '../Container/Container';
 import './index.css';
 
 export default class App extends Component {

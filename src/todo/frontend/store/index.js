@@ -1,11 +1,10 @@
-// @flow
 import { Store } from 'nuklein';
-import TodoFragment from './fragments/TodoFragment';
+import TodoList from './fragments/TodoList';
 
 export default class MyStore extends Store {
 	init() {
 		return {
-			todo: new TodoFragment(),
+			todoList: new TodoList(),
 		};
 	}
 }
