@@ -17,7 +17,7 @@
     "body-parser": "^1.17.1",
     "cors-prefetch-middleware": "^1.0.0",
     "express": "^4.15.2",
-    "nuklein": "0.0.1-alpha.9",
+    "nuklein": "0.0.1-alpha.14",
     "nuklein-server": "0.0.1-alpha.0",
     "react": "^15.0.1",
     "react-css-modules": "^3.7.10",

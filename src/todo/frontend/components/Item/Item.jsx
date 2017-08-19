@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import { subscribe } from 'react-nuklein';
 import * as modificators from '../../modificators/todo';
 
-@subscribe({ modificators })
+const schema = (getStore, props) => (getStore({
+	_path: 'todoList',
+	item: `todos.${props.id}`,
+	removing: 'params.removing',
+}));
+
+@subscribe({ schema, modificators })
 export default class Item extends Component {
 	changeEditable = (id, state) => () => {
 		this.props.changeEditable(id, state);
@@ -21,7 +27,7 @@ export default class Item extends Component {
 		const { item, removing, id } = this.props;
 
 		if (!item) {
-			return null;
+			return <div>Loading...</div>;
 		}
 		
 		return (

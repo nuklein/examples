@@ -1,11 +1,13 @@
 import { Fragment, httpConnector } from 'nuklein';
 
 @httpConnector('http://localhost:2017/', {
-	beforeGetData: { params: { loading: true } },
-	afterGetData: { params: { loading: false, getError: null } },
+	afterGetData: { params: { getError: null } },
 	onlyLocalModificators: ['changeEditable', 'setRemoving', 'changePageNum', 'changePerPage'],
 	debounceForSet: {
 		changeTitle: 500,
+	},
+	debounceForGet: {
+		Item: 10,
 	},
 	getErrorData: {
 		params: {
@@ -37,7 +39,6 @@ export default class TodoList extends Fragment {
 		return {
 			todos: [],
 			params: {
-				loading: false,
 				getError: false,
 				setError: false,
 				removing: false,
