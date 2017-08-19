@@ -26,7 +26,7 @@ export default class List extends Component {
 				<div>
 					{listLength === 0 && <div>LOADING...</div>}
 					{
-						quantity && Array.from({ length }).map((v, key) => (
+						!!quantity && Array.from({ length }).map((v, key) => (
 							<Item key={key + itemsOffset} id={key + itemsOffset} />
 						))
 					}
